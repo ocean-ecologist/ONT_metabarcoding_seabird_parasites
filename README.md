@@ -8,7 +8,7 @@ ________________________________________________________________________________
  ## STEP 01-03: DOWNLOAD, BASECALL & QC REPORT OF RAW SEQUENCE FILES 
  
  ### 01 Download raw sequences from MinION 
- Sequences in the standard .fastq file output were downloaded from the MinION machine onto a laptop. Raw sequence data files are large and so a hard drive or local disk with a high storage capacity is required. Each .fastq file contained multiple sequences from a single barcode.
+ Sequences in the standard .fastq file output were downloaded from the sequencing machine (MinION, in this case) onto a laptop. Raw sequence data files are large and so a hard drive or local disk with a high storage capacity is required. Each .fastq file contained multiple sequences from a single barcode.
 
  ### 02 Basecall sequences
  All sequences were base-called using Dorado version 0.9.6 with the DNA super accuracy configuration, dna_r10.4.1_e8.2_400bps_sup@v5.2.0. The code for this is detailed below. However, at this stage, other basecalling software such as Guppy may be used. 
