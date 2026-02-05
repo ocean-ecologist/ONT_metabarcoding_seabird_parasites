@@ -33,7 +33,7 @@ porechop -i input_reads.fastq -o output_reads.fastq
 ### 05 Quality filtering
 The tool NanoFilt (https://github.com/wdecoster/nanofilt) was used to filter out lower quality sequences with parameters chosen based off of the pycoQC report (in this case, quality threshold = 9; read length = 320-480bp for short reads and 1300-1700bp for long reads). The .fastq files were then converted to .fasta files for further processing.
 ```
- NanoFilt -q 9 -l 1300 --maxlength 1700 input_reads.fastq > output_reads.fastq
+NanoFilt -q 9 -l 1300 --maxlength 1700 input_reads.fastq > output_reads.fastq
 seqtk seq -a input_reads.fastq > output_reads.fasta
 ```
 
