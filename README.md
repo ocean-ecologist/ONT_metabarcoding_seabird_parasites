@@ -62,13 +62,13 @@ cat *fasta > cat_centroids.fasta
 ```
 
 ### 09 Alignment 
-To create alignments, the original filtered reads from STEP 06 were mapped to the draft consensus sequences from STEP 07 through minimap2 using the parameter for Nanopore Q20 genomic reads (v2.27+).
+To create alignments, the original filtered, non-chimeric reads from STEP 07 were mapped to the draft consensus sequences from STEP 08 through minimap2 using the parameter for Nanopore Q20 genomic reads (v2.27+).
 ```
  minimap2 -ax lr:hq cat_centroids.fasta output_reads.fasta > aln.sam
 ```
 
 ### 10 Polishing
-The alignments were then corrected using a polishing software called Racon to generate error corrected OTUs. This involved the use of the the draft consensus sequences from STEP 07, the alignment from STEP 08 and the original filtered reads from STEP 06. This was done using the fragment correction parameter and a quality threshold of 0.9. 
+The alignments were then corrected using a polishing software called Racon to generate error corrected OTUs. This involved the use of the the draft consensus sequences from STEP 08, the alignment from STEP 09 and the original filtered reads from STEP 07. This was done using the fragment correction parameter and a quality threshold of 0.9. 
 ```
 racon -f -q 9 cat_centroids.fasta aln.sam output_reads.fasta > polished_output_reads.fasta
 ```
