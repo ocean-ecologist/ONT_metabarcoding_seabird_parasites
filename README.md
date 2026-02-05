@@ -47,7 +47,7 @@ vsearch --fastx_uniques input_reads.fasta --fastaout output_reads.fasta
 ### 07 Chimera detection
 Chimera detection refers to the process of identifying and removing artificial hybrid sequences generated during PCR. In this case, De novo chimera detection was performed using the UCHIME2 algorithm in VSEARCH. 
 ```
-vsearch --uchime2_denovo input_reads.fasta --uchimeout output_reads.fasta
+vsearch --uchime2_denovo input_reads.fasta --nonchimeras output_reads.fasta
 ```
 
  ## STEP 08-10: SEQUENCE CLUSTERING, ALIGNMENT AND POLISHING 
