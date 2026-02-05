@@ -57,6 +57,7 @@ The next steps took place on a HPC due to the processing power required, especia
 Draft consensus sequences were created from the quality reads using VSEARCH and a 90% identity threshold and a min abundance of 1 sequence per cluster. Specifically, a centroid-based approach was used per barcode. All the draft consensus sequences were then concatenated into a single file. 
 ```
 vsearch --cluster_unoise input_reads.fasta -id 0.90 --minsize 1 --centroids centroids.fasta
+
 cat *fasta > cat_centroids.fasta
 ```
 
@@ -78,6 +79,7 @@ racon -f -q 9 cat_centroids.fasta aln.sam output_reads.fasta > polished_output_r
 Polished sequences were sorted and given new headers indicating barcode and sequence number using VSEARCH. This was done so the final OTUs could be traced back to the sample that they came from. The .fasta files containing the relabelled sequences were then concatenated. 
 ```
 vsearch --sortbysize "$input_file" --relabel "$relabel_prefix" --output "$output_file"
+
 cat *fasta > cat_polished_output_reads.fasta
 ```
 
