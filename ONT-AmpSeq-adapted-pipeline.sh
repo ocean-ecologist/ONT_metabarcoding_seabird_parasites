@@ -18,10 +18,9 @@ o   o |  \|   |       |   || | | |  |     | |-' |  |
 
 dorado basecaller --device cuda:0 dna_r10.4.1_e8.2_400bps_sup@v5.2.0 /path/to/pod5_pass/files/ --no-trim --kit-name SQK-NBD114-24 --emit-fastq > /path/to/output/filename_sup.fastq
 
-
 ###Step 03 - Create QC report using PycoQC
 
-
+pycoQC –f sequencing_summary.txt –o projectx.html
 
 ##STEP 04-07: SEQUENCE TRIMMING, QUALITY FILTERING, DEREPLICATION AND CHIMERA REMOVAL
 ###Step 04 - Trim adapters off the end of sequences 
@@ -30,7 +29,6 @@ for i in *.fastq;
 	do
     porechop -i "$i" -o "${i%.fastq}_trimmed.fastq"
 	done
-
 
 ###Step 05 - Quality and length filtering and conversion to .fasta format
 
