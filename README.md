@@ -11,9 +11,9 @@ ________________________________________________________________________________
  Sequences in the standard .pod5 file output were downloaded from the sequencing machine (MinION, in this case) onto a laptop. Raw sequence data files are large and so a hard drive or local disk with a high storage capacity is required. Each .fastq file contained multiple sequences from a single barcode.
 
  ### 02 Basecall sequences
- All sequences were base-called using Dorado (https://github.com/nanoporetech/dorado ) version 0.9.6 with the DNA super accuracy configuration, dna_r10.4.1_e8.2_400bps_sup@v5.2.0. The code for this is detailed below. However, at this stage, other basecalling software such as Guppy may be used. 
+ All sequences were base-called using Dorado (https://github.com/nanoporetech/dorado ) version 0.9.6 with the DNA super accuracy configuration, dna_r10.4.1_e8.2_400bps_sup@v5.2.0 with the respective kit used for library preparation: SQK-NBD114-24/SQK-NBD114-96. The code for this is detailed below. However, at this stage, other basecalling software such as Guppy may be used. 
 ```
-dorado basecaller --device cuda:0 dna_r10.4.1_e8.2_400bps_sup@v4.3.0 /path/to/pod5_pass/files/ --no-trim --kit-name SQK-NBD114-24 --emit-fastq > /path/to/output/filename_sup.fastq
+dorado basecaller --device cuda:0 dna_r10.4.1_e8.2_400bps_sup@v5.2.0 /path/to/pod5_pass/files/ --no-trim --kit-name SQK-NBD114-24 --emit-fastq > /path/to/output/filename_sup.fastq
 
 ``` 
 
