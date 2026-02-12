@@ -16,6 +16,7 @@ o   o |  \|   |       |   || | | |  |     | |-' |  |
 ##STEP 01-03: DOWNLOAD, BASE CALL & QC REPORT OF RAW SEQUENCE FILES (Optional pre-processing of raw reads)
 ###Step 01&02 - Download raw sequences from sequencing device and base call using Dorado (Note: run on an HPC or on a local machine with ≥32GB RAM processing power)
 
+dorado basecaller --device cuda:0 dna_r10.4.1_e8.2_400bps_sup@v5.2.0 /path/to/pod5_pass/files/ --no-trim --kit-name SQK-NBD114-24 --emit-fastq > /path/to/output/filename_sup.fastq
 
 
 ###Step 03 - Create QC report using PycoQC
