@@ -8,18 +8,19 @@ ________________________________________________________________________________
  ## STEP 01-03: DOWNLOAD, BASECALL & QC REPORT OF RAW SEQUENCE FILES 
  
  ### 01 Download raw sequences from MinION 
- Sequences in the standard .fastq file output were downloaded from the sequencing machine (MinION, in this case) onto a laptop. Raw sequence data files are large and so a hard drive or local disk with a high storage capacity is required. Each .fastq file contained multiple sequences from a single barcode.
+ Sequences in the standard .pod5 file output were downloaded from the sequencing machine (MinION, in this case) onto a laptop. Raw sequence data files are large and so a hard drive or local disk with a high storage capacity is required. Each .fastq file contained multiple sequences from a single barcode.
 
  ### 02 Basecall sequences
  All sequences were base-called using Dorado (https://github.com/nanoporetech/dorado ) version 0.9.6 with the DNA super accuracy configuration, dna_r10.4.1_e8.2_400bps_sup@v5.2.0. The code for this is detailed below. However, at this stage, other basecalling software such as Guppy may be used. 
 ```
- Code here
+dorado basecaller --device cuda:0 dna_r10.4.1_e8.2_400bps_sup@v4.3.0 /path/to/pod5_pass/files/ --no-trim --kit-name SQK-NBD114-24 --emit-fastq > /path/to/output/filename_sup.fastq
+
 ``` 
 
  ### 03 QC Report using pycoQC
- A pycoQC report (https://a-slide.github.io/pycoQC/) was used to check read quality (PHRED score), median read length, etc. This was used to inform parameters set during the subsequent QC processing of sequences. 
+ A pycoQC report (https://a-slide.github.io/pycoQC/) was used to check read quality (PHRED score), median read length, etc. This was used to inform parameters set during the subsequent QC processing of sequences. This was geenrated from the original sequencing summary file.
 ```
-Code here
+pycoQC –f sequencing_summary.txt –o projectx.html
 ```
 
  ## STEP 04-07: SEQUENCE TRIMMING, QUALITY FILTERING, DEREPLICATION AND CHIMERA REMOVAL 
